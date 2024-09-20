@@ -8,13 +8,14 @@ using namespace std;
 
 int main(){
   char str[80]; //type of array and space (5 chars)
-  cin.get(str, 20);
+  cin.get(str, 80);
   cout << str << endl;
+  int length = strlen(str);
+  cout << "Length is \t" << length << endl;
 
-  
-  cout << removePunctuations(str);
-  
-
+  for (int i = 0; i < length; i++){
+    
+  }
   // A NULL CHARACTER IS A \0
 
   //read in a series of characters
@@ -23,7 +24,6 @@ int main(){
   //check if input is the same backwards as is forwards
 
   // if true, print palindrome
-
   //if not true, print not a palindrome
 
   return 0;
@@ -31,16 +31,6 @@ int main(){
 
 }
 
-string removePunctuations(string palindrome){
-  string result = "";
-  for (char c : palindrome) {
-    if (!ispunct(c)){
-      result += c;
-    }
-  }
-  palindrome = result;
-  return palindrome;
-}
 
 bool isPalindrome(string palindrome){
 
