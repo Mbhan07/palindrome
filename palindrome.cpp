@@ -1,39 +1,59 @@
 #include <iostream>
 #include <cstring>
-#include <stdio.h>https://www2.chemistry.msu.edu/faculty/reusch/virttxtjml/physprop.htm
+#include <cwctype>
 
 using namespace std;
 
-
-//geeksforgeeks https://www.geeksforgeeks.org/removing-punctuations-given-string/ 
-
 int main(){
-  char str[80]; //type of array and space (5 chars)
-  cin.get(str, 80);
-  cout << str << endl;
-  int length = strlen(str);
-  cout << "Length is " << length << endl;
 
-  for (int i = 0; i < length; i++){
-    int result = strcmp()
+  cout << "Enter a message that is up to 80 characters and I will check if it is a palindrome. \n Enter your message here: \t" ;
+  char input[80];
+  cin.get(input, 80);
+  cin.get();
+
+  int input_length = strlen(input);
+
+  char input_duplicate[input_length];
+  
+  //remove spaces & punctuation
+  int index = 0;
+  for (int i= 0; i < input_length; i++){
+    input[i] = tolower(input[i]);
+
+
+    if(iswalnum(input[i])){
+	input_duplicate[index] = input[i];
+	index++;
+    }
   }
-  // A NULL CHARACTER IS A \0
+  //https://www.geeksforgeeks.org/iswalnum-function-in-c-stl/
 
-  //read in a series of characters
-  //remove all spaces and punctuation
+  char new_input[index];
 
-  //check if input is the same backwards as is forwards
+  for (int j = 0; j < index; j++){
+    new_input[j] = input_duplicate[j];
+  }
 
-  // if true, print palindrome
-  //if not true, print not a palindrome
+
+  // for backwards
+
+  int input_duplicate_length = strlen(input_duplicate);
+  char input_reverse[input_duplicate_length];
+  int count = 0;
+  for (int i = (input_duplicate_length - 1); i>=0; i--){
+    input_reverse[count] = input_duplicate[i];
+    count++;
+  }
+
+  cout << "Backwards: " << input_reverse << endl;
+  cout << "Original Message: " << input_duplicate << endl;
+
+  if (strcmp(input_duplicate, input_reverse) == 0) {
+    cout << "This message is a palindrome!" << endl;
+  }else {
+    cout << "This message is NOT a palindrome!" << endl;
+  }
 
   return 0;
 
-
-}
-
-
-bool isPalindrome(string palindrome){
-
-  return false;
 }
