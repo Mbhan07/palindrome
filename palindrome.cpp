@@ -6,13 +6,13 @@ using namespace std;
 
 int main(){
 
-  cout << "Enter a message that is up to 80 characters and I will check if it is a palindrome. \n Enter your message here: \t" ;
+  cout << "Enter a message that is up to 80 characters and I will check if it is a palindrome.\nEnter your message here: \t" ;
   char input[80];
   cin.get(input, 80);
   cin.get();
 
   int input_length = strlen(input);
-
+  
   char input_duplicate[input_length];
   
   //remove spaces & punctuation
@@ -45,9 +45,11 @@ int main(){
     count++;
   }
 
-  cout << "Backwards: " << input_reverse << endl;
+  
+cout << "Backwards: " << input_reverse << endl;
   cout << "Original Message: " << input_duplicate << endl;
-
+  cout << input_length << endl;
+  cout << strlen(input_reverse) << endl;
   if (strcmp(input_duplicate, input_reverse) == 0) {
     cout << "This message is a palindrome!" << endl;
   }else {
